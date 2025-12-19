@@ -1,0 +1,36 @@
+# Project Coding Standards
+
+## Code Comments
+- DO NOT add comments to code files
+- Code should be self-explanatory through clear naming and structure
+- Remove any existing comments when editing files
+
+## Import Statements
+- ALWAYS use `@/*` path aliases instead of relative paths (e.g., `../../` or `./`)
+- Use `@/` prefix for all imports from the src directory
+- Use `@/messages/*` for message files
+- Never use relative imports like `../` or `./` in import statements
+- Update any existing relative imports to use `@/*` aliases
+
+## Code Quality & Deployment
+- Always write production-ready code that is safe to deploy
+- Double-check all code before finalizing changes
+- Ensure code is tested and follows best practices
+
+## Feature Development
+- When adding features, design them to be easily expandable and maintainable
+- Follow all best practices for scalability and maintainability
+- Use modular architecture and separation of concerns
+- Write reusable, composable components and functions
+- Follow SOLID principles and design patterns where appropriate
+
+## Code Organization & Architecture
+- Always place code in the best location following industry standards and design patterns
+- Follow established architectural patterns (e.g., feature-based, domain-driven, layered architecture)
+- Organize code by feature/domain rather than by file type when appropriate
+- Keep related code together and maintain clear separation of concerns
+- Place shared utilities in appropriate shared directories
+- Place feature-specific code in feature-specific directories
+- Follow Next.js App Router conventions and best practices
+- Maintain consistent folder structure and naming conventions throughout the application
+

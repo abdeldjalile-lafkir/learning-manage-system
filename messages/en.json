@@ -1,0 +1,635 @@
+{
+  "common": {
+    "welcome": "Welcome",
+    "hello": "Hello",
+    "goodbye": "Goodbye",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "update": "Update",
+    "search": "Search",
+    "filter": "Filter",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "confirm": "Confirm",
+    "close": "Close"
+  },
+  "navigation": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "courses": "Courses",
+    "students": "Students",
+    "teachers": "Teachers",
+    "settings": "Settings",
+    "features": "Features",
+    "pricing": "Pricing",
+    "contact": "Contact",
+    "login": "Login",
+    "register": "Get Started"
+  },
+  "landing": {
+    "hero": {
+      "title": "Transform Your Learning Experience",
+      "subtitle": "The ultimate platform for private tutoring and support lessons management",
+      "subtitleGradient": "for teachers and students",
+      "description": "Connect students with expert teachers, manage courses effortlessly, and track progress in real-time.",
+      "cta": {
+        "primary": "Get Started",
+        "secondary": "Learn More",
+        "hhhhh": "Whoever knows their own worth does not lose the path to their Lord"
+      }
+    },
+    "trustedBy": {
+      "title": "Trusted by thousands of educators and students"
+    },
+    "tools": {
+      "title": "Trusted Learning System",
+      "subtitle": "Tools we use in the educational process"
+    },
+    "stats": {
+      "badge": "Platform",
+      "title": "Platform growth & engagement",
+      "subtitle": "Key metrics that show how learners and educators are using the platform.",
+      "items": {
+        "students": "Students",
+        "teachers": "Teachers",
+        "courses": "Courses",
+        "satisfaction": "Satisfaction",
+        "support": "Support",
+        "content": "Content"
+      }
+    },
+    "features": {
+      "title": "Everything you need to manage your tutoring business",
+      "subtitle": "Powerful features designed for modern education",
+      "items": {
+        "courseManagement": {
+          "title": "Course Management",
+          "description": "Create, organize, and manage courses with ease"
+        },
+        "studentTracking": {
+          "title": "Student Tracking",
+          "description": "Monitor progress and engagement in real-time"
+        },
+        "scheduling": {
+          "title": "Smart Scheduling",
+          "description": "Schedule sessions and manage calendars effortlessly"
+        },
+        "payments": {
+          "title": "Payment Management",
+          "description": "Track payments and generate reports automatically"
+        },
+        "notifications": {
+          "title": "Real-time Notifications",
+          "description": "Stay connected with instant updates"
+        },
+        "analytics": {
+          "title": "Advanced Analytics",
+          "description": "Get insights into performance and growth"
+        },
+        "interactive-lessons": {
+          "title": "Interactive Lessons",
+          "description": "Carefully designed lessons with interactive elements to enhance understanding and retention."
+        },
+        "progress-tracking": {
+          "title": "Progress Tracking",
+          "description": "Personal dashboard showing student progress, test results, and completed assignments."
+        },
+        "instant-support": {
+          "title": "Instant Support",
+          "description": "Live chat with teachers and the support team to answer queries in real time."
+        },
+        "diverse-content": {
+          "title": "Diverse Content",
+          "description": "Videos, quizzes, worksheets, and practical projects to suit different learning styles."
+        },
+        "certified-certificates": {
+          "title": "Certified Certificates",
+          "description": "Accredited completion certificates upon finishing courses, shareable on professional platforms."
+        },
+        "learn-anytime": {
+          "title": "Learn Anytime",
+          "description": "Full access to content 24/7 from any device, anywhere."
+        }
+      }
+    },
+    "howItWorks": {
+      "title": "How the Platform Works",
+      "subtitle": "Our educational platform makes your journey easy, from initial registration to earning your certificate, through a smart and integrated learning environment.",
+      "steps": [
+        {
+          "title": "Sign Up",
+          "description": "Create your account in minutes and complete your profile for a personalized experience.",
+          "benefits": [
+            "Free and fast registration",
+            "Parent accounts supported for younger students",
+            "Ability to link your account to your school or educational institution"
+          ]
+        },
+        {
+          "title": "Browse Courses",
+          "description": "Explore our rich library of courses categorized by level, field, and instructor.",
+          "benefits": [
+            "Filter by grade or specialty",
+            "Free preview of the first lesson in every course",
+            "Ratings and reviews from previous students"
+          ]
+        },
+        {
+          "title": "Subscribe to a Course",
+          "description": "Choose the subscription plan that suits you — monthly, term, or single course.",
+          "benefits": [
+            "Secure payment through multiple methods",
+            "Discounts for students and group registration",
+            "Downloadable official invoices"
+          ]
+        },
+        {
+          "title": "Benefit from Live Sessions",
+          "description": "Join interactive live sessions with instructors, or watch the recording later.",
+          "benefits": [
+            "Live chat and Q&A during broadcast",
+            "Lifetime access to replays",
+            "Multilingual support in selected sessions"
+          ]
+        },
+        {
+          "title": "Complete Exercises and Assignments",
+          "description": "Apply what you've learned through interactive exercises, projects, and instant-graded quizzes.",
+          "benefits": [
+            "Automatic grading with detailed feedback",
+            "Exercises prepared according to official exam standards",
+            "Ability to retry exercises after reviewing notes"
+          ]
+        },
+        {
+          "title": "Finish the Course",
+          "description": "Receive an accredited certificate upon successfully meeting the course requirements.",
+          "benefits": [
+            "Digitally verifiable certificate",
+            "Certificate automatically added to your profile",
+            "Recommendations for advanced courses based on your performance"
+          ]
+        }
+      ]
+    },
+    "categories": {
+      "title": "Educational Levels",
+      "subtitle": "Choose the level that suits your needs to get personalized content",
+      "plans": [
+        {
+          "title": "Primary Level",
+          "price": "From 900 DZD/month",
+          "description": "Suitable for primary school students, with simplified interactive content tailored for early learning stages.",
+          "features": [
+            "Short video lessons",
+            "Simple interactive exercises",
+            "Parent support via dashboard",
+            "Daily progress tracking"
+          ],
+          "cta": "",
+          "href": "/register"
+        },
+        {
+          "title": "Secondary Level",
+          "price": "From 3000 DZD/month",
+          "description": "Designed for baccalaureate and high school students, with in-depth content focused on final exams and university readiness.",
+          "features": [
+            "Specialized lessons by stream (Science, Math, etc.)",
+            "Mock exams simulating official tests",
+            "Direct support from qualified teachers",
+            "Individual performance analysis and personalized improvement plans"
+          ],
+          "cta": "",
+          "href": "/register",
+          "featured": true
+        },
+        {
+          "title": "Middle Level",
+          "price": "From 1200 DZD/month",
+          "description": "Prepared for middle school students, focusing on building core skills and understanding scientific and literary concepts.",
+          "features": [
+            "Detailed video explanations",
+            "Regular tests with feedback",
+            "Weekly group review sessions",
+            "Additional resource library (summaries, worksheets)"
+          ],
+          "cta": "",
+          "href": "/register"
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "What Our Customers Say",
+      "subtitle": "Join thousands of satisfied users"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Everything you need to know",
+      "items": [
+        {
+          "question": "Do you offer free trial lessons before subscribing?",
+          "answer": "Yes, we offer a free trial lesson for any course, plus a preview of the first video in each unit, so you can evaluate the content and instructor before subscribing."
+        },
+        {
+          "question": "What devices and systems are supported to access the platform?",
+          "answer": "The platform is compatible with all devices (computer, tablet, smartphone) and works on modern browsers (Chrome, Firefox, Safari, Edge). We also support offline mode via our app to download lessons in advance."
+        },
+        {
+          "question": "Can a parent track the student's progress?",
+          "answer": "Yes, parents get an account linked to the student's account, allowing them to track watched lessons, test results, completed exercises, and periodic evaluations from teachers."
+        },
+        {
+          "question": "What if I miss a live session? Can I watch it later?",
+          "answer": "Absolutely. All live sessions are recorded and uploaded automatically within an hour after they end, and remain available for life within the subscribed course."
+        },
+        {
+          "question": "Are the certificates accredited by the Ministry of Education or official educational institutions?",
+          "answer": "Certificates are internally accredited by our platform and electronically signed by the teacher and educational coordinator. We are currently working on partnerships with accredited educational institutions to officially accredit some courses."
+        }
+      ]
+    },
+    "contacts": {
+      "title": " Contact Us",
+      "subtitle": "  Get in touch with our support team",
+      "methods": [
+        {
+          "title": "Email",
+          "description": "We respond to all messages within 24 hours at most.",
+          "email": "lafkir.abdeldjalile@gmail.com"
+        },
+        {
+          "title": "Phone",
+          "description": "Available Monday to Friday, from 9 AM to 5 PM.",
+          "phone": "+213 676 04 17 42"
+        },
+        {
+          "title": "Office",
+          "description": "You can visit us at our office for direct communication.",
+          "address": "  مجمع التعليم الإلكتروني، شارع عبد الحميد بن باديس، وهران، الجزائر"
+        }
+      ],
+      "socialLinks": {
+        "title": "Follow Us on Social Media",
+        "subtitle": "Stay connected and follow the latest updates.",
+        "links": [
+          {
+            "label": "Facebook",
+            "href": "https://www.facebook.com/yourpage",
+            "icon": "FacebookIcon"
+          },
+          {
+            "label": "Instagram",
+            "href": "https://www.instagram.com/yourprofile",
+            "icon": "InstagramIcon"
+          }
+        ]
+      },
+      "feedback": {
+        "title": "We Value Your Feedback",
+        "placeholder": "Your message...",
+        "supported": "supported",
+        "submit": "Send "
+      }
+    },
+    "footer": {
+      "title": "LMS",
+      "copyright": "All rights reserved",
+      "links": {
+        "about": "About",
+        "terms": "Terms",
+        "privacy": "Privacy",
+        "support": "Support"
+      }
+    }
+  },
+  "errors": {
+    "404": {
+      "title": "Page Not Found",
+      "description": "Sorry, the page you are looking for does not exist.",
+      "cta": "Go to Home"
+    },
+    "500": {
+      "title": "Server Error",
+      "description": "An unexpected error occurred on the server.",
+      "cta": "Try Again Later"
+    },
+    "network": {
+      "title": "Network Error",
+      "description": "Unable to connect to the server. Please check your internet connection and try again.",
+      "cta": "Retry"
+    },
+    "unauthorized": {
+      "title": "Unauthorized",
+      "description": "You do not have permission to access this resource.",
+      "cta": "Login"
+    },
+    "forbidden": {
+      "title": "Forbidden",
+      "description": "You do not have permission to access this page.",
+      "cta": "Go to Home"
+    },
+    "badRequest": {
+      "title": "Bad Request",
+      "description": "The request you made is invalid or cannot be processed.",
+      "cta": "Check and try again"
+    },
+    "timeout": {
+      "title": "Connection Timeout",
+      "description": "The request took too long to respond. Please try again.",
+      "cta": "Retry"
+    },
+    "unknown": {
+      "title": "Unknown Error",
+      "description": "An unknown error occurred. Please try again.",
+      "cta": "Retry"
+    },
+    "loading": {
+      "title": "Loading",
+      "description": "Please wait while we load the content."
+    },
+    "noData": {
+      "title": "No Data",
+      "description": "No data is available to display at this time."
+    }
+  },
+  "pages": {
+    "AboutPage": {
+      "title": "About Us",
+      "description": "The Learning Platform is your first destination for modern digital education. We provide a comprehensive educational environment that combines traditional teaching and interactive online learning, aiming to empower learners of all ages to acquire knowledge and develop skills in a flexible and user-friendly environment.",
+      "section_intro": "About the Learning Platform",
+      "section_intro_paragraph2": "Our platform was established to make high-quality education accessible to everyone, regardless of geographical location or social status. We believe that education is the driving force for progress, and we strive to provide resources and educational tools that help learners achieve their academic and professional goals.",
+      "mission_title": "Our Mission",
+      "mission_text": "Our mission is to empower learners by providing outstanding educational content and interactive learning experiences. We aim to change the way we learn and teach others by integrating technology with best educational practices to deliver a rich and impactful learning experience.",
+      "vision_title": "Our Vision",
+      "vision_text": "Our vision is to be a global leader in digital education, working to empower millions of learners worldwide by providing high-quality content and educational opportunities accessible to all.",
+      "features_title": "Platform Features",
+      "features": [
+        "Diverse educational content covering various disciplines and levels",
+        "Qualified and expert teachers in their fields",
+        "An interactive and multimedia learning environment",
+        "Integrated tracking and assessment capabilities",
+        "Multilingual support",
+        "Full compatibility with all devices"
+      ],
+      "why_us_title": "Why Choose Us?",
+      "why_us_paragraph1": "We stand out by offering a personalized learning experience that meets the needs of every learner. We use the latest technologies to ensure content quality and ease of access. We work with the best teachers and experts to provide exceptional courses that help you achieve your professional and educational goals.",
+      "why_us_paragraph2": "We believe that learning never ends, and we strive to provide an inspiring environment that helps you continue to grow and develop in your educational and professional journey."
+    },
+    "SupportPage": {
+      "title": "Support Center",
+      "description": "Get the help you need through our support center, with educational articles and an available support team.",
+      "main_heading": "Technical Support",
+      "welcome_heading": "Welcome to the Technical Support Section",
+      "welcome_paragraph_1": "We are here to help you solve any issues you may encounter while using the learning platform. Our technical support team is ready to answer your inquiries and provide the necessary assistance around the clock.",
+      "welcome_paragraph_2": "We care deeply about your satisfaction and are constantly working to improve our services. If you have any questions, comments, or suggestions, please do not hesitate to contact us.",
+      "faq_title": "Frequently Asked Questions",
+      "faq": [
+        "How can I create an account on the platform?",
+        "How can I access lessons after registration?",
+        "What payment methods are available?",
+        "How can I contact the instructor?",
+        "What is the refund policy?"
+      ],
+      "contact_methods_title": "Contact Methods",
+      "contact_methods": {
+        "email": "Email: support@learning-platform.com",
+        "live_chat": "Live chat: Available from 9 AM to 5 PM (local time)",
+        "phone": "Phone: +966 123 456 7890",
+        "whatsapp": "WhatsApp support: +966 123 456 7890",
+        "social": "Support via social media: @LearningPlatform"
+      },
+      "help_sites_title": "Help Sections",
+      "help_sites": [
+        {
+          "title": "Help with Registration",
+          "description": "Steps to create a new account, recover your password, activate your account, and update personal information."
+        },
+        {
+          "title": "Help with Navigation",
+          "description": "How to search for courses, browse categories, rate courses, and view educational features."
+        },
+        {
+          "title": "Help with Payment",
+          "description": "Accepted payment methods, payment issues, refunds, and updating payment information."
+        },
+        {
+          "title": "Help with Learning",
+          "description": "How to access lessons, use learning features, download materials, and apply for certificates."
+        }
+      ],
+      "contact_form_title": "Contact Form",
+      "form": {
+        "name_label": "Full Name",
+        "name_placeholder": "Full Name",
+        "email_label": "Email",
+        "email_placeholder": "Email",
+        "subject_label": "Subject",
+        "subject_options": [
+          "Select from the list",
+          "Help with registration",
+          "Help with payment",
+          "Technical issues",
+          "Suggestions",
+          "Other"
+        ],
+        "message_label": "Message",
+        "message_placeholder": "Message",
+        "submit": "Send Message"
+      }
+    },
+    "TermsPage": {
+      "title": "Terms of Service",
+      "description": "Learn about the terms and conditions that govern your use of our educational platform.",
+      "sections": {
+        "intro": {
+          "title": "Introduction",
+          "paragraphs": [
+            "Please read the following terms of use carefully before using the learning platform. By using the platform, you fully agree to these terms of use. If you do not agree to any part of these terms, you must stop using the platform.",
+            "We reserve the right to modify these terms at any time, and the updated version will be posted on this page. Your continued use of the platform after changes are made constitutes your acceptance of those changes."
+          ]
+        },
+        "account": {
+          "title": "Registration and User Account",
+          "paragraphs": [
+            "You are responsible for maintaining the confidentiality of your account information, including your password, and for all activities that occur through your account. You agree to notify us immediately of any unauthorized use of your account or any other security breach.",
+            "Your account information may not be used by anyone else. You may not create accounts for others without their explicit permission. We reserve the right to terminate user accounts that violate this policy."
+          ]
+        },
+        "content": {
+          "title": "Content and Property",
+          "paragraphs": [
+            "The content of lessons and courses available on the platform is owned by us or our licensed content providers. Users are prohibited from copying, distributing, transferring, selling, or reproducing this content without our express written permission.",
+            "Users are not allowed to upload, publish, or send any content that infringes the rights of others or contains illegal, defamatory, abusive, or threatening information."
+          ]
+        },
+        "usage": {
+          "title": "Use of Service",
+          "paragraphs": [
+            "It is prohibited to use our platform in any way that may disable the service, endanger it, negatively affect its performance, or the user experience of others. You may not attempt to breach security or access features or accounts you are not authorized to access.",
+            "It is prohibited to use any software, tools, or automated means to access our platform, attempt to measure its performance or content, or obtain information from it other than by the means we provide or authorize."
+          ]
+        },
+        "restrictions": {
+          "title": "Content Restrictions",
+          "paragraphs": [
+            "Users are prohibited from posting or sharing content that includes threats, defamation, pornography, violence, or any other content we deem illegal, offensive, or contrary to public morals.",
+            "We are not responsible for content posted or shared by users, but we reserve the right to remove any content we consider inappropriate or in violation of policies."
+          ]
+        },
+        "intellectual": {
+          "title": "Intellectual Property",
+          "paragraphs": [
+            "All intellectual property rights in and around the learning platform remain owned by us or our suppliers. No intellectual property rights are granted to the user through the use of this service, unless expressly stated.",
+            "If you believe your copyrighted content has been used in a way that infringes your rights, please notify us immediately."
+          ]
+        },
+        "termination": {
+          "title": "Termination",
+          "paragraphs": [
+            "We may terminate or suspend your access to our platform immediately, without prior notice, for any reason including, but not limited to, your violation of any provision of these terms.",
+            "You may terminate your account at any time by giving us written notice. In the event of termination, we will delete your account information in accordance with applicable privacy requirements."
+          ]
+        },
+        "disclaimer": {
+          "title": "Disclaimer and Warranties",
+          "paragraphs": [
+            "The platform and the content available on it are provided as is without any warranties of any kind. We disclaim all warranties, whether express or implied, including, but not limited to, implied warranties of merchantability or fitness for a particular purpose."
+          ]
+        }
+      }
+    },
+    "PrivacyPage": {
+      "title": "Privacy Policy",
+      "introTitle": "Introduction",
+      "intro1": "At our learning platform, we respect your privacy and are committed to protecting your personal information. This privacy policy outlines the information we collect from you, why we collect it, how we use it, and your rights regarding this information.",
+      "intro2": "By using our learning platform, you agree to the collection and use of your information in accordance with this privacy policy. If you do not agree with this policy, you should stop using the platform.",
+      "infoTitle": "Information We Collect",
+      "personalInfoTitle": "Personal Information",
+      "personalInfo": "When you register on our platform or create an account, we may ask you to provide personal information such as your name, email address, phone number, and payment details. We use this information to provide our services to you and improve your experience on the platform.",
+      "nonPersonalInfoTitle": "Non-Personal Information",
+      "nonPersonalInfo": "We also collect non-personal information related to your experience on the platform, such as device information, browser type, IP address, and your use of the services. We use this information for analysis and improvement purposes.",
+      "usageTitle": "How We Use Your Information",
+      "usageIntro": "We use the information we collect from you for the following purposes:",
+      "usageList": [
+        "To provide and improve our services and your experience on the platform",
+        "To communicate with you about updates and new services",
+        "To personalize content and services according to your interests",
+        "To analyze platform usage and improve its performance",
+        "To comply with legal obligations",
+        "To prevent illegal or prohibited activities"
+      ],
+      "thirdPartyTitle": "Sharing with Third Parties",
+      "thirdParty1": "We do not sell, rent, or trade your personal information to third parties for commercial purposes. However, we may share your information with trusted parties who help us operate our platform, conduct our business, or provide services to you, provided that these parties agree to adhere to the same privacy standards.",
+      "thirdParty2": "We may disclose your personal information in the following cases: (1) to comply with the law or respond to court orders, (2) to protect the rights, property, or safety of users or others, (3) to investigate violations of our policies.",
+      "securityTitle": "Information Security",
+      "security1": "We take appropriate security measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction. We use encryption technologies and other security protocols to ensure the safety of your data. However, information security cannot be guaranteed 100% when transmitted over the internet.",
+      "security2": "Securing access to your account is your responsibility. We recommend using strong, hard-to-guess passwords and not sharing your login information with others.",
+      "cookiesTitle": "Cookies and Data Usage",
+      "cookies1": "We use cookies and other technologies to enhance your experience on the platform and analyze its performance. Cookies help us remember your preferences, collect analytical information, and provide personalized content. You can choose to disable cookies through your browser settings, but some platform features may be affected.",
+      "cookies2": "We use analytics services such as Google Analytics to collect information about how visitors use the platform. This information is used for analysis and to improve the user experience.",
+      "accessTitle": "Accessing and Correcting Information",
+      "access1": "You have the right to access the personal information we hold about you and request its correction or update if it is inaccurate. You can also request the deletion of your personal information from our records, unless we are legally required to retain it.",
+      "access2": "To access or request changes to your information, please contact us using the contact information provided below.",
+      "retentionTitle": "Data Retention",
+      "retention1": "We retain your personal information only as long as we need it to provide our services to you or as required by legal obligations. Once the information is no longer needed for our purposes, we delete it securely.",
+      "retention2": "We may retain some personal information for a longer period to comply with legal requirements, resolve disputes, or protect our rights.",
+      "childrenTitle": "Children's Privacy",
+      "children1": "Our platform is not directed to children under the age of 13, and we do not knowingly collect personal information from anyone under 13. If you are a parent or guardian and suspect that your child has provided personal information, please contact us so we can take appropriate action.",
+      "children2": "If we become aware that we have collected personal information from a child under 13, we will delete this information from our records immediately.",
+      "changesTitle": "Changes to the Privacy Policy",
+      "changes1": "We reserve the right to modify this privacy policy at any time. Any changes will be effective immediately upon posting on this page. We encourage you to review the privacy policy periodically to stay informed of the latest updates.",
+      "changes2": "Your continued use of the platform after changes are made constitutes your acceptance of the updated policies."
+    },
+    "AuthPage": {
+      "login": {
+        "title": "Welcome Back",
+        "subtitle": "Sign in to your account",
+        "button": "Sign In",
+        "toggleSignup": "Don't have an account? ",
+        "toggleSignupButton": "Sign up",
+        "rememberMe": "Remember me",
+        "forgotPassword": "Forgot password?",
+        "fields": {
+          "email": "Email Address",
+          "password": "Password"
+        }
+      },
+      "signup": {
+        "title": "Create Account",
+        "subtitle": "Create a new account",
+        "button": "Create Account",
+        "toggleLogin": "Already have an account? ",
+        "toggleLoginButton": "Sign in",
+        "fields": {
+          "name": "Full Name",
+          "email": "Email Address",
+          "password": "Password",
+          "confirmPassword": "Confirm Password",
+          "phone": "Phone Number (Optional)"
+        },
+        "agreeToTerms": "I agree to the",
+        "termsOfService": "Terms of Service",
+        "and": "and",
+        "privacyPolicy": "Privacy Policy"
+      },
+      "reset": {
+        "title": "Reset Password",
+        "subtitle": "Recover your account access",
+        "header": "Password Recovery",
+        "description": "Enter your email address and we'll send you a link to reset your password.",
+        "button": "Send Reset Link",
+        "backToLogin": "Back to Login"
+      },
+      "verification": {
+        "header": "Verify Your Email",
+        "description": "We've sent a 6-digit code to",
+        "inputPlaceholder": "Enter 6-digit code",
+        "button": "Verify Email",
+        "backToDetails": "Back to Details"
+      },
+      "complete": {
+        "header": "Welcome Aboard!",
+        "description": "Your account has been created successfully.",
+        "button": "Get Started"
+      },
+
+      "errors": {
+        "nameRequired": "Name is required",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email address",
+        "passwordRequired": "Password is required",
+        "passwordMinLength": "Password must be at least 8 characters",
+        "passwordWeak": "Password is too weak",
+        "confirmPasswordMismatch": "Passwords do not match",
+        "phoneInvalid": "Please enter a valid phone number",
+        "verificationCodeInvalid": "Verification code must be 6 digits",
+        "agreeToTerms": "You must agree to the terms and conditions",
+        "general": "Authentication failed. Please try again."
+      },
+      "success": {
+        "login": "Login successful",
+        "signup": "Account created! Please verify your email.",
+        "verification": "Email verified successfully!",
+        "reset": "Password reset email sent!"
+      },
+      "passwordStrength": {
+        "veryWeak": "Very Weak",
+        "weak": "Weak",
+        "fair": "Fair",
+        "good": "Good",
+        "strong": "Strong",
+        "requirements": {
+          "length": "At least 8 characters",
+          "uppercase": "One uppercase letter",
+          "lowercase": "One lowercase letter",
+          "number": "One number",
+          "special": "One special character"
+        }
+      }
+    }
+  }
+}
