@@ -142,11 +142,7 @@ const PasswordStrengthIndicator: React.FC<{ password: string }> = ({
             style={{ width: `${(strength.score / 5) * 100}%` }}
           />
         </div>
-<<<<<<< HEAD
-        <span className="text-xs text-muted-foreground min-w-[60px]">
-=======
         <span className="text-xs text-muted-foreground min-w-15">
->>>>>>> 9defbbe (landing page)
           {getStrengthText(strength.score)}
         </span>
       </div>
