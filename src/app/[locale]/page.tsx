@@ -7,6 +7,7 @@ import { FAQ } from "@/components/landing/FAQ";
 import { States } from "@/components/landing/States";
 import { Tools } from "@/components/landing/Tools";
 import { Contacts } from "@/components/landing/Contacts";
+import { Team } from "@/components/landing/Team";
 
 export default function LandingPage() {
   return (
@@ -18,6 +19,7 @@ export default function LandingPage() {
       <HowItWork />
       <Categories />
       <Testimonials />
+      <Team />
       <FAQ />
       <Contacts />
     </>
