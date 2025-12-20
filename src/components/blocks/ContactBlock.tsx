@@ -88,6 +88,10 @@ export function ContactBlock({
             <Link
               href={`mailto:${APP_EMAIL}`}
               className="font-mono text-base font-medium tracking-wide hover:underline"
+              style={{
+                fontFamily: "'Inter'",
+                direction: "ltr",
+              }}
             >
               {APP_EMAIL}
             </Link>
@@ -124,6 +128,10 @@ export function ContactBlock({
                 <Link
                   href={`tel:${APP_PHONE}`}
                   className="block font-mono text-base font-medium tracking-wide hover:underline text-end"
+                  style={{
+                    fontFamily: "'Inter'",
+                    direction: "ltr",
+                  }}
                 >
                   {APP_PHONE}
                 </Link>
@@ -133,6 +141,10 @@ export function ContactBlock({
                 <Link
                   href={`tel:${APP_PHONE_2}`}
                   className="block font-mono text-base font-medium tracking-wide hover:underline text-end"
+                  style={{
+                    fontFamily: "'Inter'",
+                    direction: "ltr",
+                  }}
                 >
                   {APP_PHONE_2}
                 </Link>

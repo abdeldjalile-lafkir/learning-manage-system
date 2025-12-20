@@ -10,7 +10,7 @@ export function Footer() {
     { title: t("links.support"), href: "/support" },
   ];
   return (
-    <footer className=" bg-white/40 dark:bg-black/40 backdrop-blur-sm border-t py-8 w-full">
+    <footer className=" bg-white/40 dark:bg-black/40 backdrop-blur-sm border-t py-6 w-full">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-wrap flex-col md:flex-row items-center justify-center md:justify-between gap-x-12 gap-y-4">
           <div className=" flex  items-center gap-3">
