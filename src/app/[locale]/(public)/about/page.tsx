@@ -6,7 +6,7 @@ export default function AboutPage() {
   const features = t.raw("features") as string[];
 
   return (
-    <div className="min-h-screen mt-24 mb-12 bg-linear-to-br from-[--color-hu-background] to-[--color-hu-secondary] dark:from-[--color-hu-background] dark:to-[--color-hu-secondary] py-8 sm:py-12 transition-colors duration-300">
+    <div className="min-h-screen  mb-12 bg-linear-to-br from-[--color-hu-background] to-[--color-hu-secondary] dark:from-[--color-hu-background] dark:to-[--color-hu-secondary] py-8 sm:py-12 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-12 bg-white/40 dark:bg-background backdrop-blur-sm rounded-md">
           <h1 className="text-2xl sm:text-4xl font-bold text-[--color-hu-foreground] mb-3 sm:mb-4">

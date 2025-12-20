@@ -49,5 +49,9 @@ export function Contacts() {
     },
   };
 
-  return <ContactBlock contactsInfo={contactsInfo} />;
+  return (
+    <div id="contact">
+      <ContactBlock contactsInfo={contactsInfo} />{" "}
+    </div>
+  );
 }

@@ -45,7 +45,7 @@ export function Header() {
           </Link>
           <nav className="hidden md:flex items-center gap-6">
             <Link
-              href="#features"
+              href="/"
               className="text-sm font-medium transition-colors hover:text-primary"
             >
               {t("home")}
@@ -57,10 +57,10 @@ export function Header() {
               {t("features")}
             </Link>
             <Link
-              href="#pricing"
+              href="#categories"
               className="text-sm font-medium transition-colors hover:text-primary"
             >
-              {t("pricing")}
+              {t("categories")}
             </Link>
             <Link
               href="#contact"
@@ -97,10 +97,10 @@ export function Header() {
                   {t("features")}
                 </Link>
                 <Link
-                  href="#pricing"
+                  href="#categories"
                   className="text-sm font-medium transition-colors hover:text-primary"
                 >
-                  {t("pricing")}
+                  {t("categories")}
                 </Link>
                 <Link
                   href="#contact"

@@ -48,9 +48,9 @@ export function Categories() {
     },
   ];
   return (
-    <>
+    <div id="categories">
       <LandingTitles title={t("title")} subtitle={t("subtitle")} />
       <CategoriesBlock categoriesData={categoriesData} />
-    </>
+    </div>
   );
 }
