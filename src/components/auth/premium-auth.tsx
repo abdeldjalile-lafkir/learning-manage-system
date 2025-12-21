@@ -15,7 +15,9 @@ import {
   Phone,
   Loader2,
 } from "lucide-react";
+import { authClient } from "@/lib/authhandler";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 
 // Types
 type AuthMode = "login" | "signup" | "reset";
@@ -196,15 +198,18 @@ export function AuthForm({
   const [errors, setErrors] = useState<FormErrors>({});
   const [fieldTouched, setFieldTouched] = useState<Record<string, boolean>>({});
 
+  const router = useRouter();
   const t = useTranslations("pages.AuthPage");
 
-  const requirements = {
-    lengthh: t("passwordStrength.requirements.length"),
-    uppercase: t("passwordStrength.requirements.uppercase"),
-    lowercase: t("passwordStrength.requirements.lowercase"),
-    number: t("passwordStrength.requirements.number"),
-    special: t("passwordStrength.requirements.special"),
-  };
+  const requirements = React.useMemo(() => {
+    return {
+      lengthh: t("passwordStrength.requirements.length"),
+      uppercase: t("passwordStrength.requirements.uppercase"),
+      lowercase: t("passwordStrength.requirements.lowercase"),
+      number: t("passwordStrength.requirements.number"),
+      special: t("passwordStrength.requirements.special"),
+    };
+  }, [t]);
 
   // Load saved email on mount
   React.useEffect(() => {
@@ -293,7 +298,7 @@ export function AuthForm({
 
       return error;
     },
-    [formData.password, authMode, registrationStep, t]
+    [formData.password, authMode, registrationStep, t, requirements]
   );
 
   // Handle input changes with real-time validation
@@ -334,6 +339,10 @@ export function AuthForm({
       fieldsToValidate.push("verificationCode");
     }
 
+    if (authMode === "reset") {
+      fieldsToValidate.pop();
+    }
+
     fieldsToValidate.forEach((field) => {
       const error = validateField(field, formData[field]);
       if (error) newErrors[field as keyof FormErrors] = error;
@@ -352,30 +361,99 @@ export function AuthForm({
     setErrors({});
 
     try {
-      // In a real implementation, this is where you'd call your authentication service
-      await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulating API call
-
       if (authMode === "login") {
-        // Example implementation - replace with your actual authentication logic
-        if (formData.rememberMe) {
-          localStorage.setItem("userEmail", formData.email);
-          localStorage.setItem("rememberMe", "true");
-        }
-
-        setSuccessMessage(t("success.login"));
-        onSuccess?.({ email: formData.email });
+        const { data, error } = await authClient.signIn.email(
+          {
+            email: formData.email,
+            password: formData.password,
+            rememberMe: formData.rememberMe,
+            callbackURL: "/dashboard",
+          },
+          {
+            onSuccess: async (ctx) => {
+              setSuccessMessage(t("success.login"));
+              onSuccess?.({ email: formData.email });
+            },
+            onError: (ctx) => {
+              setErrors({ general: t("errors.general") });
+            },
+          }
+        );
       } else if (authMode === "signup") {
         if (registrationStep === "details") {
-          setRegistrationStep("verification");
-          setSuccessMessage(t("success.signup"));
+          const { data, error } = await authClient.signUp.email(
+            {
+              email: formData.email,
+              password: formData.password,
+              name: formData.name,
+              callbackURL: "/dashboard",
+            },
+            {
+              onSuccess: async (ctx) => {
+                const { data, error } =
+                  await authClient.emailOtp.sendVerificationOtp(
+                    {
+                      email: formData.email,
+                      type: "email-verification",
+                    },
+                    {
+                      onSuccess: (ctx) => {
+                        setSuccessMessage(t("success.verification"));
+                        setRegistrationStep("complete");
+                        onSuccess?.({
+                          email: formData.email,
+                          name: formData.name,
+                        });
+                      },
+                      onError: (ctx) => {
+                        setErrors({ general: t("errors.general") });
+                      },
+                    }
+                  );
+                setSuccessMessage(t("success.signup"));
+                setRegistrationStep("verification");
+              },
+              onError: (ctx) => {
+                setErrors({ general: t("errors.general") });
+              },
+            }
+          );
         } else if (registrationStep === "verification") {
-          setRegistrationStep("complete");
-          setSuccessMessage(t("success.verification"));
-          onSuccess?.({ email: formData.email, name: formData.name });
+          const { data, error } = await authClient.emailOtp.verifyEmail(
+            {
+              email: formData.email,
+              otp: formData.verificationCode,
+            },
+            {
+              onRequest: (ctx) => {
+                //show loading
+              },
+              onSuccess: (ctx) => {
+                setSuccessMessage(t("success.verification"));
+                setRegistrationStep("complete");
+                onSuccess?.({ email: formData.email, name: formData.name });
+              },
+              onError: (ctx) => {
+                setErrors({ general: t("errors.general") });
+              },
+            }
+          );
         }
       } else if (authMode === "reset") {
-        setSuccessMessage(t("success.reset"));
-        setTimeout(() => setAuthMode("login"), 3000);
+        const { data, error } = await authClient.requestPasswordReset(
+          {
+            email: formData.email,
+            redirectTo: `${process.env.NEXT_PUBLIC_URL}/auth/reset-password`,
+          },
+          {
+            onSuccess: (ctx) => {
+              setSuccessMessage(t("success.reset"));
+            },
+            onError: (ctx) => {
+              setErrors({ general: t("errors.general") });
+            },
+          }
+        );
       }
     } catch (error) {
       setErrors({
@@ -405,7 +483,7 @@ export function AuthForm({
               <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
               <input
                 type="email"
-                placeholder="Email Address"
+                placeholder={t("reset.fields.email")}
                 value={formData.email}
                 onChange={(e) => handleInputChange("email", e.target.value)}
                 onBlur={() => handleFieldBlur("email")}
@@ -570,7 +648,10 @@ export function AuthForm({
           </div>
 
           <button
-            onClick={onClose}
+            onClick={() => {
+              setAuthMode("login");
+              router.refresh();
+            }}
             className={cn(
               "w-full bg-primary text-primary-foreground font-medium py-3 px-6 rounded-xl",
               "hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-primary/20"
@@ -901,15 +982,15 @@ export function AuthForm({
           {authMode === "login"
             ? t("login.title")
             : authMode === "reset"
-            ? t("reset.title")
-            : t("signup.title")}
+              ? t("reset.title")
+              : t("signup.title")}
         </h2>
         <p className="text-muted-foreground">
           {authMode === "login"
             ? t("login.subtitle")
             : authMode === "reset"
-            ? t("reset.subtitle")
-            : t("signup.subtitle")}
+              ? t("reset.subtitle")
+              : t("signup.subtitle")}
         </p>
       </div>
 

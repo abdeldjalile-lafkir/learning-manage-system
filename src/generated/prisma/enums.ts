@@ -9,43 +9,7 @@
 * 🟢 You can import this file directly.
 */
 
-export const Role = {
-  ADMIN: 'ADMIN',
-  TEACHER: 'TEACHER',
-  STUDENT: 'STUDENT'
-} as const
-
-export type Role = (typeof Role)[keyof typeof Role]
 
 
-export const EnrollmentStatus = {
-  PENDING: 'PENDING',
-  APPROVED: 'APPROVED',
-  REJECTED: 'REJECTED',
-  CANCELLED: 'CANCELLED'
-} as const
-
-export type EnrollmentStatus = (typeof EnrollmentStatus)[keyof typeof EnrollmentStatus]
-
-
-export const PaymentStatus = {
-  PENDING: 'PENDING',
-  COMPLETED: 'COMPLETED',
-  FAILED: 'FAILED',
-  REFUNDED: 'REFUNDED'
-} as const
-
-export type PaymentStatus = (typeof PaymentStatus)[keyof typeof PaymentStatus]
-
-
-export const NotificationType = {
-  INFO: 'INFO',
-  SUCCESS: 'SUCCESS',
-  WARNING: 'WARNING',
-  ERROR: 'ERROR',
-  ENROLLMENT: 'ENROLLMENT',
-  PAYMENT: 'PAYMENT',
-  SESSION: 'SESSION'
-} as const
-
-export type NotificationType = (typeof NotificationType)[keyof typeof NotificationType]
+// This file is empty because there are no enums in the schema.
+export {}

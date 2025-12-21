@@ -20,7 +20,7 @@ const config: runtime.GetPrismaClientConfig = {
   "clientVersion": "7.2.0",
   "engineVersion": "0c8ef2ce45c83248ab3df073180d5eda9e8be7a3",
   "activeProvider": "postgresql",
-  "inlineSchema": "generator client {\n  provider = \"prisma-client\"\n  output   = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n\nmodel User {\n  id            String         @id @default(cuid())\n  email         String         @unique\n  name          String?\n  password      String?\n  image         String?\n  role          Role           @default(STUDENT)\n  emailVerified DateTime?\n  createdAt     DateTime       @default(now())\n  updatedAt     DateTime       @updatedAt\n  courses       Course[]       @relation(\"TeacherCourses\")\n  enrollments   Enrollment[]\n  notifications Notification[]\n\n  @@index([email])\n  @@index([role])\n}\n\nmodel Course {\n  id          String       @id @default(cuid())\n  title       String\n  description String?\n  teacherId   String\n  teacher     User         @relation(\"TeacherCourses\", fields: [teacherId], references: [id])\n  lessons     Lesson[]\n  enrollments Enrollment[]\n  sessions    Session[]\n  createdAt   DateTime     @default(now())\n  updatedAt   DateTime     @updatedAt\n}\n\nmodel Lesson {\n  id        String   @id @default(cuid())\n  title     String\n  content   String?\n  courseId  String\n  course    Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)\n  videos    Video[]\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n\nmodel Video {\n  id        String   @id @default(cuid())\n  url       String\n  title     String?\n  duration  Int?\n  lessonId  String\n  lesson    Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n\nmodel Enrollment {\n  id        String           @id @default(cuid())\n  studentId String\n  courseId  String\n  status    EnrollmentStatus @default(PENDING)\n  createdAt DateTime         @default(now())\n  updatedAt DateTime         @updatedAt\n  student   User             @relation(fields: [studentId], references: [id], onDelete: Cascade)\n  course    Course           @relation(fields: [courseId], references: [id], onDelete: Cascade)\n\n  @@unique([studentId, courseId])\n  @@index([studentId])\n  @@index([courseId])\n}\n\nmodel Session {\n  id         String   @id @default(cuid())\n  courseId   String\n  title      String?\n  startsAt   DateTime\n  duration   Int\n  meetingUrl String?\n  course     Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)\n  createdAt  DateTime @default(now())\n  updatedAt  DateTime @updatedAt\n\n  @@index([courseId])\n  @@index([startsAt])\n}\n\nmodel Payment {\n  id            String        @id @default(cuid())\n  amount        Float\n  studentId     String\n  courseId      String\n  status        PaymentStatus @default(PENDING)\n  method        String?\n  transactionId String?\n  createdAt     DateTime      @default(now())\n  updatedAt     DateTime      @updatedAt\n\n  @@index([studentId])\n  @@index([courseId])\n  @@index([status])\n}\n\nmodel Notification {\n  id        String            @id @default(cuid())\n  userId    String\n  user      User              @relation(fields: [userId], references: [id], onDelete: Cascade)\n  title     String\n  body      String?\n  type      NotificationType?\n  read      Boolean           @default(false)\n  createdAt DateTime          @default(now())\n  updatedAt DateTime          @updatedAt\n\n  @@index([userId])\n  @@index([read])\n  @@index([createdAt])\n}\n\nenum Role {\n  ADMIN\n  TEACHER\n  STUDENT\n}\n\nenum EnrollmentStatus {\n  PENDING\n  APPROVED\n  REJECTED\n  CANCELLED\n}\n\nenum PaymentStatus {\n  PENDING\n  COMPLETED\n  FAILED\n  REFUNDED\n}\n\nenum NotificationType {\n  INFO\n  SUCCESS\n  WARNING\n  ERROR\n  ENROLLMENT\n  PAYMENT\n  SESSION\n}\n",
+  "inlineSchema": "generator client {\n  provider = \"prisma-client\"\n  output   = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n\nmodel User {\n  id            String    @id\n  name          String\n  email         String\n  emailVerified Boolean   @default(false)\n  image         String?\n  createdAt     DateTime  @default(now())\n  updatedAt     DateTime  @updatedAt\n  sessions      Session[]\n  accounts      Account[]\n\n  @@unique([email])\n  @@map(\"User\")\n}\n\nmodel Session {\n  id        String   @id\n  expiresAt DateTime\n  token     String\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n  ipAddress String?\n  userAgent String?\n  userId    String\n  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)\n\n  @@unique([token])\n  @@index([userId])\n  @@map(\"session\")\n}\n\nmodel Account {\n  id                    String    @id\n  accountId             String\n  providerId            String\n  userId                String\n  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)\n  accessToken           String?\n  refreshToken          String?\n  idToken               String?\n  accessTokenExpiresAt  DateTime?\n  refreshTokenExpiresAt DateTime?\n  scope                 String?\n  password              String?\n  createdAt             DateTime  @default(now())\n  updatedAt             DateTime  @updatedAt\n\n  @@index([userId])\n  @@map(\"account\")\n}\n\nmodel Verification {\n  id         String   @id\n  identifier String\n  value      String\n  expiresAt  DateTime\n  createdAt  DateTime @default(now())\n  updatedAt  DateTime @updatedAt\n\n  @@index([identifier])\n  @@map(\"verification\")\n}\n",
   "runtimeDataModel": {
     "models": {},
     "enums": {},
@@ -28,7 +28,7 @@ const config: runtime.GetPrismaClientConfig = {
   }
 }
 
-config.runtimeDataModel = JSON.parse("{\"models\":{\"User\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"password\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"image\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"role\",\"kind\":\"enum\",\"type\":\"Role\"},{\"name\":\"emailVerified\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"courses\",\"kind\":\"object\",\"type\":\"Course\",\"relationName\":\"TeacherCourses\"},{\"name\":\"enrollments\",\"kind\":\"object\",\"type\":\"Enrollment\",\"relationName\":\"EnrollmentToUser\"},{\"name\":\"notifications\",\"kind\":\"object\",\"type\":\"Notification\",\"relationName\":\"NotificationToUser\"}],\"dbName\":null},\"Course\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"title\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"description\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"teacherId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"teacher\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"TeacherCourses\"},{\"name\":\"lessons\",\"kind\":\"object\",\"type\":\"Lesson\",\"relationName\":\"CourseToLesson\"},{\"name\":\"enrollments\",\"kind\":\"object\",\"type\":\"Enrollment\",\"relationName\":\"CourseToEnrollment\"},{\"name\":\"sessions\",\"kind\":\"object\",\"type\":\"Session\",\"relationName\":\"CourseToSession\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"Lesson\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"title\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"content\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"courseId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"course\",\"kind\":\"object\",\"type\":\"Course\",\"relationName\":\"CourseToLesson\"},{\"name\":\"videos\",\"kind\":\"object\",\"type\":\"Video\",\"relationName\":\"LessonToVideo\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"Video\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"url\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"title\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"duration\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"lessonId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"lesson\",\"kind\":\"object\",\"type\":\"Lesson\",\"relationName\":\"LessonToVideo\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"Enrollment\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"studentId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"courseId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"status\",\"kind\":\"enum\",\"type\":\"EnrollmentStatus\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"student\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"EnrollmentToUser\"},{\"name\":\"course\",\"kind\":\"object\",\"type\":\"Course\",\"relationName\":\"CourseToEnrollment\"}],\"dbName\":null},\"Session\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"courseId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"title\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"startsAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"duration\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"meetingUrl\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"course\",\"kind\":\"object\",\"type\":\"Course\",\"relationName\":\"CourseToSession\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"Payment\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"amount\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"studentId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"courseId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"status\",\"kind\":\"enum\",\"type\":\"PaymentStatus\"},{\"name\":\"method\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"transactionId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"Notification\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"userId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"user\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"NotificationToUser\"},{\"name\":\"title\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"body\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"type\",\"kind\":\"enum\",\"type\":\"NotificationType\"},{\"name\":\"read\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
+config.runtimeDataModel = JSON.parse("{\"models\":{\"User\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"emailVerified\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"image\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"sessions\",\"kind\":\"object\",\"type\":\"Session\",\"relationName\":\"SessionToUser\"},{\"name\":\"accounts\",\"kind\":\"object\",\"type\":\"Account\",\"relationName\":\"AccountToUser\"}],\"dbName\":\"User\"},\"Session\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"expiresAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"token\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"ipAddress\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"userAgent\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"userId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"user\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"SessionToUser\"}],\"dbName\":\"session\"},\"Account\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"accountId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"providerId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"userId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"user\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"AccountToUser\"},{\"name\":\"accessToken\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"refreshToken\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"idToken\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"accessTokenExpiresAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"refreshTokenExpiresAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"scope\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"password\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":\"account\"},\"Verification\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"identifier\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"value\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"expiresAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":\"verification\"}},\"enums\":{},\"types\":{}}")
 
 async function decodeBase64AsWasm(wasmBase64: string): Promise<WebAssembly.Module> {
   const { Buffer } = await import('node:buffer')
@@ -185,46 +185,6 @@ export interface PrismaClient<
   get user(): Prisma.UserDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
-   * `prisma.course`: Exposes CRUD operations for the **Course** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Courses
-    * const courses = await prisma.course.findMany()
-    * ```
-    */
-  get course(): Prisma.CourseDelegate<ExtArgs, { omit: OmitOpts }>;
-
-  /**
-   * `prisma.lesson`: Exposes CRUD operations for the **Lesson** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Lessons
-    * const lessons = await prisma.lesson.findMany()
-    * ```
-    */
-  get lesson(): Prisma.LessonDelegate<ExtArgs, { omit: OmitOpts }>;
-
-  /**
-   * `prisma.video`: Exposes CRUD operations for the **Video** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Videos
-    * const videos = await prisma.video.findMany()
-    * ```
-    */
-  get video(): Prisma.VideoDelegate<ExtArgs, { omit: OmitOpts }>;
-
-  /**
-   * `prisma.enrollment`: Exposes CRUD operations for the **Enrollment** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Enrollments
-    * const enrollments = await prisma.enrollment.findMany()
-    * ```
-    */
-  get enrollment(): Prisma.EnrollmentDelegate<ExtArgs, { omit: OmitOpts }>;
-
-  /**
    * `prisma.session`: Exposes CRUD operations for the **Session** model.
     * Example usage:
     * ```ts
@@ -235,24 +195,24 @@ export interface PrismaClient<
   get session(): Prisma.SessionDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
-   * `prisma.payment`: Exposes CRUD operations for the **Payment** model.
+   * `prisma.account`: Exposes CRUD operations for the **Account** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Payments
-    * const payments = await prisma.payment.findMany()
+    * // Fetch zero or more Accounts
+    * const accounts = await prisma.account.findMany()
     * ```
     */
-  get payment(): Prisma.PaymentDelegate<ExtArgs, { omit: OmitOpts }>;
+  get account(): Prisma.AccountDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
-   * `prisma.notification`: Exposes CRUD operations for the **Notification** model.
+   * `prisma.verification`: Exposes CRUD operations for the **Verification** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Notifications
-    * const notifications = await prisma.notification.findMany()
+    * // Fetch zero or more Verifications
+    * const verifications = await prisma.verification.findMany()
     * ```
     */
-  get notification(): Prisma.NotificationDelegate<ExtArgs, { omit: OmitOpts }>;
+  get verification(): Prisma.VerificationDelegate<ExtArgs, { omit: OmitOpts }>;
 }
 
 export function getPrismaClientClass(): PrismaClientConstructor {

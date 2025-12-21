@@ -23,37 +23,17 @@ export * from './enums';
  */
 export type User = Prisma.UserModel
 /**
- * Model Course
- * 
- */
-export type Course = Prisma.CourseModel
-/**
- * Model Lesson
- * 
- */
-export type Lesson = Prisma.LessonModel
-/**
- * Model Video
- * 
- */
-export type Video = Prisma.VideoModel
-/**
- * Model Enrollment
- * 
- */
-export type Enrollment = Prisma.EnrollmentModel
-/**
  * Model Session
  * 
  */
 export type Session = Prisma.SessionModel
 /**
- * Model Payment
+ * Model Account
  * 
  */
-export type Payment = Prisma.PaymentModel
+export type Account = Prisma.AccountModel
 /**
- * Model Notification
+ * Model Verification
  * 
  */
-export type Notification = Prisma.NotificationModel
+export type Verification = Prisma.VerificationModel

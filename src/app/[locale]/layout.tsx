@@ -92,14 +92,14 @@ export const metadata: Metadata = {
   category: "education",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
+  params: { locale: string };
 }>) {
   return (
     <html
-      lang="en"
       suppressHydrationWarning
       className={`${inter.variable} ${cairo.variable}`}
     >
