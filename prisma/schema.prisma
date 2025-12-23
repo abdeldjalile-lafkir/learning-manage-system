@@ -8,19 +8,24 @@ datasource db {
   provider = "postgresql"
 }
 
+
+// ==================== Auth Models ====================
+
 model User {
   id            String    @id
   name          String
   email         String
   emailVerified Boolean   @default(false)
   image         String?
+  role          UserRole  @default(STUDENT)
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   sessions      Session[]
   accounts      Account[]
 
   @@unique([email])
-  @@map("User")
+  @@map("user")
+  userGroups UserGroup[]
 }
 
 model Session {
@@ -70,3 +75,120 @@ model Verification {
   @@index([identifier])
   @@map("verification")
 }
+
+
+// ==================== Course Models ====================
+
+model Course {
+  id          String    @id @default(uuid())
+  title       String
+  description String
+  status      CourseStatus @default(DRAFT)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  chapters    Chapter[]
+
+  @@index([status])
+  @@index([createdAt])
+  @@map("course")
+}
+
+model Chapter {
+  id        String   @id @default(uuid())
+  title     String
+  description String
+  order     Int
+  courseId  String
+  course    Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  lessons Lesson[]
+  attachments Attachment[]
+
+  @@unique([courseId, order])
+  @@index([courseId])
+}
+
+model Lesson {
+  id         String   @id @default(uuid())
+  title      String
+  description    String
+  startAt   DateTime
+  endAt     DateTime
+
+  chapterId  String
+  chapter    Chapter  @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+
+  groupId   String
+  group     Group    @relation(fields: [groupId], references: [id], onDelete: Cascade)
+
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([chapterId])
+}
+
+model Attachment {
+  id        String   @id @default(uuid())
+  url       String   @db.VarChar(500)
+  fileName  String   @db.VarChar(255)
+  fileSize  Int?
+  mimeType  String   @db.VarChar(100)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+
+  @@index([mimeType])
+  @@map("attachment")
+  chapters Chapter[]
+}
+
+
+model Group {
+  id        String   @id @default(uuid())
+  name      String   @db.VarChar(255)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  userGroups UserGroup[]
+  lessons Lesson[]
+
+  @@index([name])
+  @@map("group")
+}
+
+model UserGroup {
+  id        String   @id @default(uuid())
+  userId    String
+  groupId   String
+  role      String?  @default("member") @db.VarChar(50)
+  joinedAt  DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  group     Group    @relation(fields: [groupId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, groupId])
+  @@index([userId])
+  @@index([groupId])
+  @@map("user_group")
+}
+
+
+
+// ==================== ENUMS ====================
+enum UserRole {
+  ADMIN
+  TEACHER
+  STUDENT
+}
+
+enum CourseStatus {
+  DRAFT
+  PUBLISHED
+  COMPLETED
+}
+
+

@@ -1,3 +1,6 @@
+import React from "react";
+import { Overview } from "@/components/dashboard/teacher/Overview";
+
 export default function Dashboard() {
   return (
     <div className="flex flex-1">
@@ -6,7 +9,7 @@ export default function Dashboard() {
         <div className="flex flex-col gap-4 mt-4">
           {/* Teacher dashboard content goes here */}
           <div className="p-4 border rounded-lg">Teacher Panel 1</div>
-          <div className="p-4 border rounded-lg">Teacher Panel 2</div>
+          <Overview />
           <div className="p-4 border rounded-lg">Teacher Panel 3</div>
         </div>
       </div>

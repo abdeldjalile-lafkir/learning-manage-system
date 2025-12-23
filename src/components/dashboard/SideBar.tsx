@@ -32,7 +32,7 @@ export function SideBar() {
   const [open, setOpen] = useState(false);
   const t = useTranslations("dashboard.sidebar");
 
-  const user = { role: "admin" };
+  const user = { role: "teacher" };
 
   const { headLinks, adminLinks, teacherLinks, studentsLinks, footLinks } =
     getLinks({
@@ -43,7 +43,7 @@ export function SideBar() {
   return (
     <Sidebar open={open} setOpen={setOpen}>
       <SidebarBody className="justify-between">
-        <div className="flex flex-col overflow-y-auto overflow-x-hidden">
+        <div className="flex flex-col overflow-y-auto overflow-x-hidden scrollbar-hide">
           <div className="flex flex-col gap-2">
             {open ? <Logo /> : <LogoIcon />}
           </div>
