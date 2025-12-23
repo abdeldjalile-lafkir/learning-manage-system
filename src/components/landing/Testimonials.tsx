@@ -1,6 +1,6 @@
 "use client";
 
-import { TestimonialsColumn } from "@/components/blocks/TestimonialsColumn";
+import { TestimonialsColumn } from "@/components/landing/blocks/TestimonialsColumn";
 import { motion } from "motion/react";
 import LandingTitles from "@/components/shared/LandingTitles";
 import { useTranslations } from "next-intl";

@@ -1,4 +1,4 @@
-import { AccordionComponent } from "@/components/blocks/AccordionBlock";
+import { AccordionComponent } from "@/components/landing/blocks/AccordionBlock";
 import LandingTitles from "@/components/shared/LandingTitles";
 import { useTranslations } from "next-intl";
 

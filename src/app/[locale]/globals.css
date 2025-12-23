@@ -176,14 +176,26 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+    font-family:
+      var(--font-inter),
+      system-ui,
+      -apple-system,
+      sans-serif;
   }
   [dir="rtl"] body {
-    font-family: var(--font-cairo), var(--font-inter), system-ui, -apple-system,
+    font-family:
+      var(--font-cairo),
+      var(--font-inter),
+      system-ui,
+      -apple-system,
       sans-serif;
   }
   [lang="ar"] body {
-    font-family: var(--font-cairo), var(--font-inter), system-ui, -apple-system,
+    font-family:
+      var(--font-cairo),
+      var(--font-inter),
+      system-ui,
+      -apple-system,
       sans-serif;
   }
 }
@@ -218,21 +230,25 @@
   --ds-shadow-border: 0 0 0 1px rgba(0, 0, 0, 0.08);
   --ds-shadow-small: 0px 2px 2px rgba(0, 0, 0, 0.04);
   --ds-shadow-border-small: var(--ds-shadow-border), var(--ds-shadow-small);
-  --ds-shadow-medium: 0px 2px 2px rgba(0, 0, 0, 0.04),
-    0px 8px 8px -8px rgba(0, 0, 0, 0.04);
+  --ds-shadow-medium:
+    0px 2px 2px rgba(0, 0, 0, 0.04), 0px 8px 8px -8px rgba(0, 0, 0, 0.04);
   --ds-shadow-border-medium: var(--ds-shadow-border), var(--ds-shadow-medium);
-  --ds-shadow-large: 0px 2px 2px rgba(0, 0, 0, 0.04),
-    0px 8px 16px -4px rgba(0, 0, 0, 0.04);
+  --ds-shadow-large:
+    0px 2px 2px rgba(0, 0, 0, 0.04), 0px 8px 16px -4px rgba(0, 0, 0, 0.04);
   --ds-shadow-border-large: var(--ds-shadow-border), var(--ds-shadow-large);
-  --ds-shadow-tooltip: var(--ds-shadow-border), 0px 1px 1px rgba(0, 0, 0, 0.02),
+  --ds-shadow-tooltip:
+    var(--ds-shadow-border), 0px 1px 1px rgba(0, 0, 0, 0.02),
     0px 4px 8px rgba(0, 0, 0, 0.04);
-  --ds-shadow-menu: var(--ds-shadow-border), 0px 1px 1px rgba(0, 0, 0, 0.02),
+  --ds-shadow-menu:
+    var(--ds-shadow-border), 0px 1px 1px rgba(0, 0, 0, 0.02),
     0px 4px 8px -4px rgba(0, 0, 0, 0.04), 0px 16px 24px -8px rgba(0, 0, 0, 0.06);
-  --ds-shadow-modal: var(--ds-shadow-border), 0px 1px 1px rgba(0, 0, 0, 0.02),
+  --ds-shadow-modal:
+    var(--ds-shadow-border), 0px 1px 1px rgba(0, 0, 0, 0.02),
     0px 8px 16px -4px rgba(0, 0, 0, 0.04),
     0px 24px 32px -8px rgba(0, 0, 0, 0.06);
-  --ds-shadow-fullscreen: var(--ds-shadow-border),
-    0px 1px 1px rgba(0, 0, 0, 0.02), 0px 8px 16px -4px rgba(0, 0, 0, 0.04),
+  --ds-shadow-fullscreen:
+    var(--ds-shadow-border), 0px 1px 1px rgba(0, 0, 0, 0.02),
+    0px 8px 16px -4px rgba(0, 0, 0, 0.04),
     0px 24px 32px -8px rgba(0, 0, 0, 0.06);
   --ds-blue-100: oklch(97.32% 0.0141 251.56);
   --ds-blue-900: oklch(53.18% 0.2399 256.9900584162342);
@@ -253,16 +269,16 @@
   --ds-gray-1000-h: hsl(0, 0%, 22%);
   --ds-gray-alpha-200: hsla(0, 0%, 0%, 0.08);
   --ds-focus-color: var(--ds-blue-700);
-  --ds-focus-ring: 0 0 0 2px var(--ds-background-100),
-    0 0 0 4px var(--ds-focus-color);
+  --ds-focus-ring:
+    0 0 0 2px var(--ds-background-100), 0 0 0 4px var(--ds-focus-color);
   --ds-red-300: oklch(94.33% 0.0369 15.011509923860523);
   --ds-gray-900: hsla(0, 0%, 40%, 1);
   --ds-gray-alpha-500: hsla(0, 0%, 0%, 0.21);
   --ds-gray-alpha-600: hsla(0, 0%, 0%, 0.34);
   --geist-foreground: #000;
   --geist-error: #ee0000;
-  --ds-input-ring: 0 0 0 1px var(--ds-gray-alpha-600),
-    0 0 0 4px rgba(0, 0, 0, 0.16);
+  --ds-input-ring:
+    0 0 0 1px var(--ds-gray-alpha-600), 0 0 0 4px rgba(0, 0, 0, 0.16);
   --ds-blue-300: oklch(94.58% 0.0293 249.84870859673202);
   --accents-1: #fafafa;
   --accents-2: #eaeaea;
@@ -273,25 +289,31 @@
   --ds-background-100: hsla(0, 0%, 4%, 1);
   --ds-shadow-border: 0 0 0 1px rgba(255, 255, 255, 0.145);
   --ds-shadow-small: 0px 1px 2px rgba(0, 0, 0, 0.16);
-  --ds-shadow-border-small: var(--ds-shadow-border),
-    0px 1px 2px rgba(0, 0, 0, 0.16);
-  --ds-shadow-medium: 0px 2px 2px rgba(0, 0, 0, 0.32),
-    0px 8px 8px -8px rgba(0, 0, 0, 0.16);
-  --ds-shadow-border-medium: var(--ds-shadow-border),
+  --ds-shadow-border-small:
+    var(--ds-shadow-border), 0px 1px 2px rgba(0, 0, 0, 0.16);
+  --ds-shadow-medium:
     0px 2px 2px rgba(0, 0, 0, 0.32), 0px 8px 8px -8px rgba(0, 0, 0, 0.16);
-  --ds-shadow-large: 0px 2px 2px rgba(0, 0, 0, 0.04),
-    0px 8px 16px -4px rgba(0, 0, 0, 0.04);
-  --ds-shadow-border-large: var(--ds-shadow-border),
+  --ds-shadow-border-medium:
+    var(--ds-shadow-border), 0px 2px 2px rgba(0, 0, 0, 0.32),
+    0px 8px 8px -8px rgba(0, 0, 0, 0.16);
+  --ds-shadow-large:
     0px 2px 2px rgba(0, 0, 0, 0.04), 0px 8px 16px -4px rgba(0, 0, 0, 0.04);
-  --ds-shadow-tooltip: var(--ds-shadow-border), 0px 1px 1px rgba(0, 0, 0, 0.02),
+  --ds-shadow-border-large:
+    var(--ds-shadow-border), 0px 2px 2px rgba(0, 0, 0, 0.04),
+    0px 8px 16px -4px rgba(0, 0, 0, 0.04);
+  --ds-shadow-tooltip:
+    var(--ds-shadow-border), 0px 1px 1px rgba(0, 0, 0, 0.02),
     0px 4px 8px rgba(0, 0, 0, 0.04);
-  --ds-shadow-menu: var(--ds-shadow-border), 0px 1px 1px rgba(0, 0, 0, 0.02),
+  --ds-shadow-menu:
+    var(--ds-shadow-border), 0px 1px 1px rgba(0, 0, 0, 0.02),
     0px 4px 8px -4px rgba(0, 0, 0, 0.04), 0px 16px 24px -8px rgba(0, 0, 0, 0.06);
-  --ds-shadow-modal: var(--ds-shadow-border), 0px 1px 1px rgba(0, 0, 0, 0.02),
+  --ds-shadow-modal:
+    var(--ds-shadow-border), 0px 1px 1px rgba(0, 0, 0, 0.02),
     0px 8px 16px -4px rgba(0, 0, 0, 0.04),
     0px 24px 32px -8px rgba(0, 0, 0, 0.06);
-  --ds-shadow-fullscreen: var(--ds-shadow-border),
-    0px 1px 1px rgba(0, 0, 0, 0.02), 0px 8px 16px -4px rgba(0, 0, 0, 0.04),
+  --ds-shadow-fullscreen:
+    var(--ds-shadow-border), 0px 1px 1px rgba(0, 0, 0, 0.02),
+    0px 8px 16px -4px rgba(0, 0, 0, 0.04),
     0px 24px 32px -8px rgba(0, 0, 0, 0.06);
   --ds-blue-100: oklch(22.17% 0.069 259.89);
   --ds-blue-900: oklch(71.7% 0.1648 250.79360374054167);
@@ -316,8 +338,8 @@
   --ds-gray-alpha-600: hsla(0, 0%, 100%, 0.51);
   --geist-foreground: #fff;
   --geist-error: #ff0000;
-  --ds-input-ring: 0 0 0 1px var(--ds-gray-alpha-600),
-    0 0 0 4px rgba(255, 255, 255, 0.24);
+  --ds-input-ring:
+    0 0 0 1px var(--ds-gray-alpha-600), 0 0 0 4px rgba(255, 255, 255, 0.24);
   --ds-blue-300: oklch(30.86% 0.1022 255.21);
   --accents-2: #333333;
   --accents-1: #111111;
@@ -329,6 +351,16 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
 

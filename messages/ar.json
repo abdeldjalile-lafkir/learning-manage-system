@@ -709,5 +709,65 @@
         "copyright": "© 2024 شركتك. جميع الحقوق محفوظة."
       }
     }
+  },
+  "dashboard": {
+    "header": {
+      "dashboard": "لوحة التحكم",
+      "search": "بحث",
+      "searchPlaceholder": "ابحث ...",
+      "notifications": {
+        "title": "الإشعارات",
+        "all": "الكل",
+        "unread": "غير المقروءة",
+        "markAllRead": "تحديد الكل كمقروء",
+        "noNotifications": "لا توجد إشعارات جديدة.",
+        "viewAll": "عرض جميع الإشعارات"
+      }
+    },
+    "sidebar": {
+      "head": {
+        "home": "الرئيسية",
+        "overview": "نظرة عامة"
+      },
+      "admin": {
+        "users": "المستخدمون",
+        "courses": "الدورات",
+        "settings": "إعدادات النظام",
+        "reports": "التقارير"
+      },
+      "teacher": {
+        "courses": "إدارة الدورات",
+        "chapters": "إدارة الفصول",
+        "attachments": "إدارة المرفقات",
+        "groups": "إدارة مجموعات الطلاب",
+        "assignments": "إدارة الواجبات",
+        "attendance": "إدارة الحضور",
+        "subscriptions": "إدارة الاشتراكات",
+        "payments": "إدارة المدفوعات",
+        "announcements": "إدارة الإعلانات",
+        "reports": "التقارير والتحليلات"
+      },
+      "student": {
+        "courses": "دوراتي",
+        "assignments": "واجباتي",
+        "attendance": "حضوري",
+        "subscriptions": "اشتراكاتي",
+        "payments": "مدفوعاتي",
+        "announcements": "الإعلانات"
+      },
+      "foot": {
+        "profile": "الملف الشخصي",
+        "settings": "الإعدادات",
+        "help": "مساعدة",
+        "logout": "تسجيل الخروج"
+      }
+    },
+    "common": {
+      "welcome": "مرحباً، {{name}}!",
+      "filter": "تصفية",
+      "search": "بحث...",
+      "loadMore": "تحميل المزيد",
+      "noResults": "لا توجد نتائج."
+    }
   }
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import TeamSection from "@/components/blocks/TeamBlock";
+import TeamSection from "@/components/landing/blocks/TeamBlock";
 import LandingTitles from "../shared/LandingTitles";
 import { useTranslations } from "next-intl";
 

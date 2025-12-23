@@ -9,7 +9,7 @@ import {
   MessageSquare,
   GraduationCap,
 } from "lucide-react";
-import SpotlightCard from "@/components/blocks/SpotlightCard";
+import SpotlightCard from "@/components/landing/blocks/SpotlightCard";
 import { Card, CardDescription, CardHeader, CardTitle } from "./card";
 import { useTranslations } from "next-intl";
 

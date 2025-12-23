@@ -34,6 +34,12 @@ const nextConfig: NextConfig = {
         port: "",
         pathname: "/api/portraits/**/*.jpg",
       },
+      {
+        protocol: "https",
+        hostname: "assets.aceternity.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };

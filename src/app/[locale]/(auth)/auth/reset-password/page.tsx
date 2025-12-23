@@ -11,7 +11,6 @@ import {
   AlertTriangle,
   KeyRound,
   Loader2,
-  CheckCircle,
 } from "lucide-react";
 import { authClient } from "@/lib/authhandler";
 import { useTranslations } from "next-intl";

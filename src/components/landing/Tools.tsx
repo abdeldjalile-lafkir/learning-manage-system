@@ -1,4 +1,4 @@
-import { LogoCloud } from "@/components/blocks/ToolsBlock";
+import { LogoCloud } from "@/components/landing/blocks/ToolsBlock";
 import LandingTitles from "@/components/shared/LandingTitles";
 import { useTranslations } from "next-intl";
 

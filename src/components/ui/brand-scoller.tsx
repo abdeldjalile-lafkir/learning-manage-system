@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { StatItem } from "@/components/blocks/StatsSectionWithText";
+import { StatItem } from "@/components/landing/blocks/StatsSectionWithText";
 import LandingTitles from "@/components/shared/LandingTitles";
 
 const States = ({ stats }: { stats: StatItem[] }) => {
@@ -31,8 +31,8 @@ const States = ({ stats }: { stats: StatItem[] }) => {
                       s.diff?.includes("+")
                         ? "text-green-500"
                         : s.diff?.includes("-")
-                        ? "text-red-500"
-                        : "text-gray-500"
+                          ? "text-red-500"
+                          : "text-gray-500"
                     }`}
                   >
                     {s.diff}

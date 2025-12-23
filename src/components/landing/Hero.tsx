@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { Circle } from "lucide-react";
 import { toast } from "sonner";
-import { ElegantShape, shapes } from "@/components/blocks/ElegantShape";
+import { ElegantShape, shapes } from "@/components/landing/blocks/ElegantShape";
 import { useLocale, useTranslations } from "next-intl";
 
 export function Hero({

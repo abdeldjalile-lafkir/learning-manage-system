@@ -710,5 +710,65 @@
         "copyright": "© 2024 Your Company. All rights reserved."
       }
     }
+  },
+  "dashboard": {
+    "header": {
+      "dashboard": "Dashboard",
+      "search": "Search",
+      "searchPlaceholder": "Search ...",
+      "notifications": {
+        "title": "Notifications",
+        "all": "All",
+        "unread": "Unread",
+        "markAllRead": "Mark all as read",
+        "noNotifications": "You have no new notifications.",
+        "viewAll": "View All Notifications"
+      }
+    },
+    "sidebar": {
+      "head": {
+        "home": "Home",
+        "overview": "Overview"
+      },
+      "admin": {
+        "users": "Users",
+        "courses": "Courses",
+        "settings": "System Settings",
+        "reports": "Reports"
+      },
+      "teacher": {
+        "courses": "Manage Courses",
+        "chapters": "Manage Chapters",
+        "attachments": "Manage Attachments",
+        "groups": "Manage Student Groups",
+        "assignments": "Manage Assignments",
+        "attendance": "Manage Attendance",
+        "subscriptions": "Manage Subscriptions",
+        "payments": "Manage Payments",
+        "announcements": "Manage Announcements",
+        "reports": "Reports & Analytics"
+      },
+      "student": {
+        "courses": "My Courses",
+        "assignments": "My Assignments",
+        "attendance": "My Attendance",
+        "subscriptions": "My Subscriptions",
+        "payments": "My Payments",
+        "announcements": "Announcements"
+      },
+      "foot": {
+        "profile": "Profile",
+        "settings": "Settings",
+        "help": "Help",
+        "logout": "Logout"
+      }
+    },
+    "common": {
+      "welcome": "Welcome, {{name}}!",
+      "filter": "Filter",
+      "search": "Search...",
+      "loadMore": "Load More",
+      "noResults": "No results found."
+    }
   }
 }

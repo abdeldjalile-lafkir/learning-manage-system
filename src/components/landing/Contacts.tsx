@@ -1,4 +1,4 @@
-import { ContactBlock } from "@/components/blocks/ContactBlock";
+import { ContactBlock } from "@/components/landing/blocks/ContactBlock";
 import { useTranslations } from "next-intl";
 
 export function Contacts() {

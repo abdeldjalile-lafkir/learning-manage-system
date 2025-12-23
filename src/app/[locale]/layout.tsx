@@ -1,10 +1,8 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { Cairo } from "next/font/google";
-import "./globals.css";
 import Provider from "@/providers";
-import { Header } from "@/components/landing/Header";
-import { Footer } from "@/components/landing/Footer";
+import type { Metadata } from "next";
+import "@/app/[locale]/globals.css";
+import { Cairo } from "next/font/google";
+import { Inter } from "next/font/google";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -92,11 +90,10 @@ export const metadata: Metadata = {
   category: "education",
 };
 
-export default async function RootLayout({
+export default async function PublicLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-  params: { locale: string };
 }>) {
   return (
     <html
@@ -104,15 +101,7 @@ export default async function RootLayout({
       className={`${inter.variable} ${cairo.variable}`}
     >
       <body>
-        <Provider>
-          <div className="flex items-center justify-center min-h-screen flex-col">
-            <Header />
-            <main className="flex flex-1 flex-col items-center">
-              {children}
-            </main>
-            <Footer />
-          </div>
-        </Provider>
+        <Provider>{children}</Provider>
       </body>
     </html>
   );

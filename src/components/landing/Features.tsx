@@ -14,7 +14,7 @@ import {
   GraduationCap,
 } from "lucide-react";
 import LandingTitles from "@/components/shared/LandingTitles";
-import SpotlightCard from "@/components/blocks/SpotlightCard";
+import SpotlightCard from "@/components/landing/blocks/SpotlightCard";
 import { Features as MF } from "@/components/ui/scroll-card";
 
 export function Features() {

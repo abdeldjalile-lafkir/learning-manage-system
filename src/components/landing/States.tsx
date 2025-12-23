@@ -1,4 +1,4 @@
-import { Stats } from "@/components/blocks/StatsSectionWithText";
+import { Stats } from "@/components/landing/blocks/StatsSectionWithText";
 import { useTranslations } from "next-intl";
 
 export function States() {

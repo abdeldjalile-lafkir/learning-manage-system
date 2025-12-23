@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 import LandingTitles from "@/components/shared/LandingTitles";
-import CategoriesBlock from "@/components/blocks/CategoriesBlock";
+import CategoriesBlock from "@/components/landing/blocks/CategoriesBlock";
 
 export function Categories() {
   const t = useTranslations("landing.categories");

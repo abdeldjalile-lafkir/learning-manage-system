@@ -1,4 +1,4 @@
-import { HowItWorks } from "@/components/blocks/HowItWorkBlock";
+import { HowItWorks } from "@/components/landing/blocks/HowItWorkBlock";
 import {
   UserPlus,
   BookOpen,
