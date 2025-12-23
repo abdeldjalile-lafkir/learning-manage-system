@@ -3,9 +3,9 @@ declare module "next-compose-plugins" {
   export = composePlugins;
 }
 
-declare module "some-other-module" {
-  const whatever: unknown;
-  export = whatever;
+declare module "*.svg" {
+  import React from "react";
+  export const ReactComponent: React.FunctionComponent<
+    React.SVGProps<SVGSVGElement>
+  >;
 }
-
-// Add more module declarations as needed

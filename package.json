@@ -60,6 +60,7 @@
     "zod": "^4.2.1"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "20.19.27",
     "@types/pg": "^8.16.0",
@@ -71,6 +72,7 @@
     "tailwindcss": "^4",
     "ts-node": "^10.9.1",
     "tsx": "^4.21.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "url-loader": "^4.1.1"
   }
 }

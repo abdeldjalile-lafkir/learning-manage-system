@@ -78,7 +78,7 @@ export function Header() {
               <Link href="/auth">{t("login")}</Link>
             </Button>
             <Button asChild>
-              <Link href="/auth">{t("register")}</Link>
+              <Link href="/dashboard/teacher/">{t("register")}</Link>
             </Button>
           </div>
           <Sheet>

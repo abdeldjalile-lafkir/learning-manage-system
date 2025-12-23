@@ -1,30 +1,112 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import * as TooltipPrimitive from "@radix-ui/react-tooltip"
+import * as React from "react";
+import * as TooltipPrimitive from "@radix-ui/react-tooltip";
+import { cva, type VariantProps } from "class-variance-authority";
+import { motion, AnimatePresence } from "motion/react";
+import { cn } from "@/lib/cn";
 
-import { cn } from "@/lib/cn"
+const tooltipVariants = cva(
+  "z-50 overflow-hidden rounded-lg border border-border bg-card px-3 py-1.5 text-xs text-card-foreground shadow-sm/2 ",
+  {
+    variants: {
+      variant: {
+        default: "bg-card text-card-foreground",
+        dark: "bg-foreground text-background border-foreground",
+        light: "bg-background text-foreground border-border",
+        destructive:
+          "bg-destructive text-primary-foreground border-destructive",
+      },
+      size: {
+        sm: "px-2 py-1 text-xs",
+        md: "px-3 py-1.5 text-sm",
+        lg: "px-4 py-2 text-base",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "md",
+    },
+  }
+);
 
-const TooltipProvider = TooltipPrimitive.Provider
+const Tooltip: React.FC<
+  React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Root>
+> = ({ delayDuration = 300, ...props }) => (
+  <TooltipPrimitive.Root delayDuration={delayDuration} {...props} />
+);
 
-const Tooltip = TooltipPrimitive.Root
+const TooltipTrigger = TooltipPrimitive.Trigger;
 
-const TooltipTrigger = TooltipPrimitive.Trigger
+const TooltipProvider: React.FC<
+  React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Provider>
+> = ({ delayDuration = 300, skipDelayDuration = 100, ...props }) => (
+  <TooltipPrimitive.Provider
+    delayDuration={delayDuration}
+    skipDelayDuration={skipDelayDuration}
+    {...props}
+  />
+);
+
+// Quick tooltip with minimal delay
+const QuickTooltipProvider: React.FC<
+  React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Provider>
+> = ({ delayDuration = 100, skipDelayDuration = 50, ...props }) => (
+  <TooltipPrimitive.Provider
+    delayDuration={delayDuration}
+    skipDelayDuration={skipDelayDuration}
+    {...props}
+  />
+);
+
+interface TooltipContentProps
+  extends
+    React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content>,
+    VariantProps<typeof tooltipVariants> {}
 
 const TooltipContent = React.forwardRef<
   React.ElementRef<typeof TooltipPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content>
->(({ className, sideOffset = 4, ...props }, ref) => (
-  <TooltipPrimitive.Content
-    ref={ref}
-    sideOffset={sideOffset}
-    className={cn(
-      "z-50 overflow-hidden rounded-md border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 origin-[--radix-tooltip-content-transform-origin]",
-      className
-    )}
-    {...props}
-  />
-))
-TooltipContent.displayName = TooltipPrimitive.Content.displayName
+  TooltipContentProps
+>(({ className, variant, size, sideOffset = 4, ...props }, ref) => {
+  const [isVisible, setIsVisible] = React.useState(false);
 
-export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider }
+  return (
+    <AnimatePresence>
+      <TooltipPrimitive.Content
+        ref={ref}
+        sideOffset={sideOffset}
+        className={cn("relative", className)}
+        onAnimationStart={() => setIsVisible(true)}
+        onAnimationEnd={() => setIsVisible(false)}
+        asChild
+        {...props}
+      >
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8, y: 5 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.8, y: 5 }}
+          transition={{
+            type: "spring",
+            stiffness: 300,
+            damping: 20,
+            duration: 0.1,
+          }}
+          className={cn(tooltipVariants({ variant, size }), className)}
+        >
+          {props.children}
+        </motion.div>
+      </TooltipPrimitive.Content>
+    </AnimatePresence>
+  );
+});
+TooltipContent.displayName = TooltipPrimitive.Content.displayName;
+
+export {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+  TooltipProvider,
+  QuickTooltipProvider,
+  tooltipVariants,
+  type TooltipContentProps,
+};
